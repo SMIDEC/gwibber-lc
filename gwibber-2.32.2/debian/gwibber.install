@@ -1,0 +1,27 @@
+debian/gwibber.desktop /etc/xdg/autostart
+debian/tmp/usr/bin/gwibber-preferences
+debian/tmp/usr/bin/gwibber-accounts
+debian/tmp/usr/bin/gwibber-poster
+debian/tmp/usr/bin/gwibber-error
+debian/tmp/usr/bin/gwibber
+debian/tmp/usr/share/locale/*
+debian/tmp/usr/share/gwibber/ui/*.*
+debian/tmp/usr/share/gwibber/ui/templates/*
+debian/tmp/usr/share/gwibber/ui/icons/*
+debian/tmp/usr/share/gwibber/ui/themes/{default,ubuntu}
+debian/tmp/usr/share/applications/gwibber-preferences.desktop
+debian/tmp/usr/share/applications/gwibber-accounts.desktop
+debian/tmp/usr/share/applications/gwibber.desktop
+debian/tmp/usr/share/indicators/*
+debian/tmp/usr/share/pixmaps/*
+debian/tmp/usr/share/dbus-1/services/com.GwibberClient.service
+debian/tmp/usr/lib/python*/*/gwibber/accounts.*
+debian/tmp/usr/lib/python*/*/gwibber/actions.*
+debian/tmp/usr/lib/python*/*/gwibber/client.*
+debian/tmp/usr/lib/python*/*/gwibber/error.*
+debian/tmp/usr/lib/python*/*/gwibber/gwui.*
+debian/tmp/usr/lib/python*/*/gwibber/pidgin.*
+debian/tmp/usr/lib/python*/*/gwibber/preferences.*
+debian/tmp/usr/lib/python*/*/gwibber/resources.*
+debian/tmp/usr/lib/python*/*/gwibber/util.*
+debian/tmp/usr/lib/python*/*/gwibber/lib/gtk/*

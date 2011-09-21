@@ -1,0 +1,8 @@
+debian/tmp/usr/bin/gwibber-service
+debian/tmp/usr/share/dbus-1/services/com.Gwibber.*.service
+debian/custom.py /usr/lib/python2.6/site-packages/gwibber/microblog/util/
+debian/tmp/usr/lib/python*/*/gwibber/__init__.py
+debian/tmp/usr/lib/python*/*/gwibber/microblog
+debian/tmp/usr/lib/python*/*/gwibber/lib/__init__.py
+debian/twitter /usr/share/gwibber/data/
+debian/gwibber-service.py /usr/share/apport/package-hooks/

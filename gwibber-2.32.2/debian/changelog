@@ -1,0 +1,866 @@
+gwibber (2.32.2-0ubuntu2) maverick-proposed; urgency=low
+
+  * debian/patches/do_not_prepend_is.patch
+    - do not prepend 'is ' on facebook status updates (LP: #674894)
+
+ -- Omer Akram <om26er@ubuntu.com>  Tue, 16 Nov 2010 00:14:22 +0500
+
+gwibber (2.32.2-0ubuntu1) maverick-proposed; urgency=low
+
+  * Drop the responses operation from facebook, it abuses the 
+    allocation facebook gives us based on the DB query count (LP: #614742)
+  * Fixed notifications for private messages (LP: #663377)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 10 Nov 2010 23:14:44 -0500
+
+gwibber (2.32.1-0ubuntu1) maverick-proposed; urgency=low
+
+  * New upstream release (LP: #673161)
+    - Backported fix for clearing multi-column streams when activated by
+      the messaging indicator (LP: #643487)
+    - Save window size/position when it changes, so it doesn't get moved
+      unexpectedly when activated by the messaging indicator
+    - Fixed dupe notifications as well as displaying dupes in the stream
+    - Shouldn't display reply icon for messages from you (LP: #661330)
+    - Private messages shouldn't allow public replies (LP: #661358)
+    - Private messages shouldn't allow retweets (LP: #661359)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 09 Nov 2010 14:06:05 -0500
+
+gwibber (2.32.0.2-0ubuntu1) maverick-proposed; urgency=low
+
+  * New upstream release (LP: #660693)
+    - Reuse the libproxy.ProxyFactory object to prevent a race 
+      condition (LP: #651761)
+    - Facebook: Check for new messages since "updated_time" instead 
+      of "created_time", to prevent losing status updates (LP: #541831)
+    - Facebook: Better handling of data returned from facebook (LP: #615339)
+    - Facebook: fixed matching of uid with profiles (LP: #524510)
+    - Facebook: fixed missing notifications (LP: #575394)
+    - Facebook: when checking for new content, use localtime
+    - Update existing record if it conflicts instead of just 
+      ignoring it (LP: #541831)
+    - Added a missing import to properly log failure on avatar resize
+    - Fix for internal Digg errors, thanks Vadim Rutkovsky (LP: #352226)
+    - Branch fixes gwibber icon is broken on the right 
+      side, thanks Vish. (LP: #655159)
+    - start gwibber-service anytime the client needs it, not just for 
+      service operations
+    - dropped print statement used for debugging scrolling
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 13 Oct 2010 15:19:46 -0400
+
+gwibber (2.32.0.1-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    -  Re-enable the first run experience, if there are no accounts configured
+       run gwibber-accounts (LP: #654811)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 05 Oct 2010 09:57:28 -0400
+
+gwibber (2.32.0-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/lp_report_to_ubuntu.patch
+    - Fixed urls for translate and gethelp to be maverick specific,
+      thanks Omer Akram (LP: #641808)
+  * debian/patches/lp_653225.patch 
+    - Don't try to store the locale and reset it after parsing the 
+      timestamp, this was causing a failure to retrieve any messages
+      for anyone with a locale set without encoding.  For example en_IN 
+      instead of en_IN.UTF-8 which seems to be pretty common (LP: #653225)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 01 Oct 2010 14:37:29 -0400
+
+gwibber (2.32.0-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Hide appmenu stubs for preferences and accounts
+  * debian/patches/hide_appmenu_stubs.patch
+    - Patch dropped, included in release
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 28 Sep 2010 11:40:00 -0400
+
+gwibber (2.31.95-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/hide_appmenu_stubs.patch
+    - Hide appmenu stubs for preferences and accounts
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 23 Sep 2010 09:11:37 -0400
+
+gwibber (2.31.95-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Don't crash if an account exists for a service that isn't available
+    - Don't fail if user["url"] is None
+    - Really quit when quit is selected (LP: #603598)
+    - Don't block the UI on map_async, fixes dbus call_blocking() 
+      exceptions (LP: #628686)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 17 Sep 2010 23:28:14 -0400
+
+gwibber (2.31.94-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Fixed render stream when font settings change, thanks Vadim 
+      Rutkovsky (LP: #580417)
+    - Only set the font when there is a default font set (LP: #534098)
+    - Disable plugins for all the webkit.WebView instances, apparently it 
+      can consume lots of CPU (LP: #629368)
+    - Translation fixes from Vadim Rutkovsky
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 15 Sep 2010 03:15:17 -0400
+
+gwibber (2.31.93-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/abount_window.patch
+    - Set the about dialog as transient for the main window, cleans up 
+      menus using appmenu
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 14 Sep 2010 23:53:49 -0400
+
+gwibber (2.31.93-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Make authentication and network errors translatable, thanks Vadim 
+      Rutkovsky (LP: #633411)
+    - Removed unnecessary stream update when send_enabled is toggled, thanks
+      Vadim Rutkovsky (LP: #636290)
+    - Improved notification settings in gwibber-preferences (LP: #621646)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 09 Sep 2010 09:26:37 -0400
+
+gwibber (2.31.92-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Don't crash if there are streams configured for accounts that no longer 
+      exist (LP: #631263)
+    - Delete associated streams when an account is deleted
+    - Reuse worker pool of threads (LP: #624918)
+    - Ensure the timer is reset on each refresh, prevents multiple timers 
+      created to perform the refresh operations causing crashes (LP: #600010)
+    - Clicking on the message indicator should focus replies (LP: #549817)
+    - When focusing replies stream from the indicator, clear the 
+      indicators (LP: #629623)
+    - gwibber-service crashed with IOError in get_avatar_path() (LP: #626068)
+    - gwibber-service crashed with GError in notify() (LP: #622812)
+  * debian/gwibber-service.py
+    - Added apport package-hook to attach the gwibber.log (LP: #384552)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 03 Sep 2010 15:06:17 -0400
+
+gwibber (2.31.91-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/lp_628420+lp_628552.patch
+    - Prevent duplicate notifications and indicators (LP: #628420) 
+    - Honor notify_mentions_only setting (LP: #628552)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 01 Sep 2010 21:37:44 -0400
+
+gwibber (2.31.91-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Port twitter service to OAuth, basic auth is no longer
+      supported (LP: #627565)
+    - Delay setting the position of the vertical splitter
+    - Fix PerformOp for single operation, including delete and 
+      like (LP: #616798)
+    - Make the string for the Translate action i18n 
+      friendly (Vadim Rutkovsky)
+    - Convert identi.ca groups (!) to hashtags (#) for re-denting if 
+      global_retweet is true (Vadim Rutkovsky) (LP: #539786)
+    - Handle null responses gracefully (James Ogley) (LP: #623309)
+    - recognize valid unicode URLs (LP: #333390)
+    - Don't crash if there is an invalid value for a preference (LP: #623335)
+  * debian/gwibber-service.install
+    - Install files needed for twitter oauth
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 23 Aug 2010 23:35:05 -0400
+
+gwibber (2.31.90-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - gwibber-accounts: Display Add/Create buttons at the appropriate time
+    - gwibber-accounts: Handle cases where there are missing keyring
+      entries, prompt the user and insert them into the keyring
+    - gwibber-accounts: Don't crash when attempting to migrate accounts
+      from desktopcouch if couch is installed but there is no 
+      gwibber_accounts DB
+    - gwibber-service: Don't crash if creditials can't be found in the keyring
+    - Fix service error handling, displaying an error dialog or raising 
+      gwibber-accounts as appropriate
+    - Limit the number of notifications display for old mentions
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 20 Aug 2010 15:01:04 -0400
+
+gwibber (2.31.5-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Added tooltips for Menu and Reply (LP: #577486)
+    - Handle messages that might have missing sender data 
+    - Added Messages interface to com.Gwibber.Streams
+    - Added Start method to com.Gwibber.Service
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 12 Aug 2010 11:02:28 -0400
+
+gwibber (2.31.4-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/missing_sender.patch
+    - Handle messages that might have missing sender data 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 10 Aug 2010 12:51:07 -0400
+
+gwibber (2.31.4-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Merged back in i18n fixes from before the sqlite merge, they seem to 
+      have gotten lost (LP: #538981)
+    - Make "Lists" translatable
+    - Make "Search" translatable
+    - Order the result of new_items by time so we get notifications in the correct 
+      order (LP: #499323)
+    - Only notify for the last 10 messages (except responses), as it is that is 
+      100 seconds of notifications displaying.  
+    - Always notify for responses (mentions)
+    - Cache avatars for notifications and client (LP: #527446)
+    - Fixed scrolling problems including scrollwheel support (LP: #611276)
+  * debian/gwibber.desktop
+    - Changed the key looked at for autostart
+  * debian/control
+    - Added depends on python-oauth, required for buzz
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 03 Aug 2010 16:27:45 -0400
+
+gwibber (2.31.3-0ubuntu2) maverick; urgency=low
+
+  * debian/control
+    - Removed python-pysqlite2 depends, sqlite3 is provided by python
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 29 Jul 2010 08:17:23 -0400
+
+gwibber (2.31.3-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Move backend storage from desktopcouch to sqlite
+    - Don't scroll to the top on every refresh (LP: #327172)
+  * debian/control
+    - Added a Depends for python-pysqlite2
+    - Dropped python-desktopcouch-records to a Recommends (still needed 
+      for account migration, but not strickly required)
+    - Made python-libproxy and python-indicate Recommends instead 
+      of depends
+    - Bumped standards version to 3.9.1
+  * -debian/patches/lp_539017.patch
+    - Merged upstream
+  * debian/patches/no_tray_icon_pref_ui.patch
+    - Hide the tray_icon preferences
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 28 Jul 2010 10:19:29 -0400
+
+gwibber (2.31.2-0ubuntu3) maverick; urgency=low
+
+  * debian/patches/lp_539017.patch
+    - Fixed another import from util (LP: #605357)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 14 Jul 2010 07:54:40 -0400
+
+gwibber (2.31.2-0ubuntu2) maverick; urgency=low
+
+  * debian/patches/lp_539017.patch
+    - Moved SettingsMonitor, getbus and service_is_running to 
+      gwibber.microblog.utils to fix failed imports from the public API when 
+      only gwibber-service is installed (LP: #539017)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 13 Jul 2010 16:43:17 -0400
+
+gwibber (2.31.2-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Better facebook api_key handling
+    - Only download content from facebook that we haven't already downloaded 
+      yet (LP: #595265)
+    - Cache the results of the friends query from facebook so we don't make so 
+      many redundant calls and download duplicate data (LP: #595265)
+    - Added a CouchDB view for getting max_message_time and a method for
+      looking it up per operation, using this value to only get content
+      newer than the latest record we have stored 
+    - All of these fixes are related to reducing the number of calls we 
+      we make to facebook and reducing the size of the result.  Facebook 
+      throttles application wide, not per-user based on usage. This throttling
+      is the root cause for (LP: #552227) and (LP: #595265) and probably many
+      other bug reports where facebook rejects gwibber.
+    - Merged in the latest version of facelib.py
+    - Don't fail when we get valid error codes back from facebook, log them.
+    - Bump the map_async timeout up to make sure it is higher than the pycurl 
+      timeouts
+    - Bump the pycurl.TIMEOUT to 150 and use default for pycurl.CONNECTTIMEOUT
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 08 Jul 2010 15:38:18 -0400
+
+gwibber (2.31.1-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+    - Added GetVersion method to the API
+    - added libproxy support for gwibber-service (LP: #259830)
+
+ -- Ken VanDin  <ken.vandine@canonical.com>  Thu, 24 Jun 2010 12:37:14 -0400
+
+gwibber (2.30.0.1-0ubuntu4) maverick; urgency=low
+
+  * debian/patches/fix_poster.patch
+    - Fixed signals in the poster widget 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Sat, 15 May 2010 12:10:05 +0200
+
+gwibber (2.30.0.1-0ubuntu3) lucid-proposed; urgency=low
+
+  * debian/patches/lp_569543.patch
+    - Don't allow people to click "Add" before we have enough information 
+      from facebook to add the account (LP: #569543)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 03 May 2010 10:58:47 -0400
+
+gwibber (2.30.0.1-0ubuntu2) lucid-proposed; urgency=low
+
+  * debian/patches/handle_facebook_keyring.patch
+    - Handle prompting the user to authorize gwibber to use facebook in cases 
+      where the account was synced and there is no local key stored in the 
+      keyring (LP: #571224)
+  * debian/patches/dont_spawn_multiple_accounts_dialogs.patch
+    - Don't fire gwibber-accounts for each failure, only spawn it 
+      once (LP: #564741)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 27 Apr 2010 16:47:17 -0400
+
+gwibber (2.30.0.1-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - Fixed account creation for accounts previously deleted (LP: #535263)
+    - Fixed support for Qaiku (LP: #342536) (LP: #544129)
+    - Fixed identi.ca search URL
+
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 15 Apr 2010 09:31:50 -0400
+
+gwibber (2.30.0-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - gwibber crashed with KeyError in action() (LP: #520492)
+    - Strings in the side panel are not translatable (LP: #538981)
+    - Strings in the *mako templates are not translatable  (LP: #538987)
+    - gwibber crashed with AttributeError in action() (LP: #444654)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 14 Apr 2010 16:22:09 -0400
+
+gwibber (2.29.95-0ubuntu5) lucid; urgency=low
+
+  * debian/patches/lp_539781.patch
+    - Fix handling of raising the keyring error (LP: #539781) 
+  * debian/patches/lp_560008.patch
+    - Removed, incorporated in lp_539781.patch
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 14 Apr 2010 11:22:09 -0400
+
+gwibber (2.29.95-0ubuntu4) lucid; urgency=low
+
+  * debian/patches/lp_560008.patch
+    - Added missing import for exceptions (LP: #560008) 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 13 Apr 2010 09:22:31 -0400
+
+gwibber (2.29.95-0ubuntu3) lucid; urgency=low
+
+  * debian/control
+    - Depend on python-indicate instead of recommend (LP: #548814)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 13 Apr 2010 09:10:29 -0400
+
+gwibber (2.29.95-0ubuntu2) lucid; urgency=low
+
+  * debian/patches/lp_559151.patch
+    - create the view if it doesn't already exist (LP: #559151) 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 09 Apr 2010 11:16:51 -0400
+
+gwibber (2.29.95-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - Fixed threadlock in keyring call which made gwibber-service 
+      utilize 100% of a CPU (LP: #554005)
+    - Handle parsing of bad message content better
+    - Fixed color handling regression in gwibber-accounts
+    - Respect full name preference in notification bubbles
+    - Reset refresh interval to pick up changes in settings (LP: #487266)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 08 Apr 2010 16:36:07 -0400
+
+gwibber (2.29.94-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - Use the keyring to store private account fields (LP: #400120) 
+    - Store window state information in gconf instead of desktopcouch 
+      to prevent syncing
+  * debian/control
+    - Added depends on python-gnomekeyring
+  * debian/patches/lp_report_to_ubuntu.patch
+    - Updated to also point translations and questions to 
+      downstream (LP: #551535)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 30 Mar 2010 22:14:41 -0400
+
+gwibber (2.29.93-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - Use MAX_MESSAGE_LENGTH for max length instead of hard coding 140
+    - Changed the views to not emit the entire doc as a value
+    - Set default focus to the text input widget (LP: #528302)
+    - Made a string translatable, requested by the translations 
+      team (LP: #534667)
+    - Patch from Gabor Kelemen setting translation domain for .ui 
+      files (LP: #538846)
+    - Mark strings translatable, thanks Kelemen Gábor (LP: #520462)
+    - Added X-GNOME-Gettext-Domain to allow translations of the desktop 
+      files to be loaded at runtime (LP: #538851
+    - Use the desktopcouch API for excluding the DB and handle
+      errors (LP: #539583)
+    - Set window icons properly so they scale nicely
+    - Set account IDs in desktopcouch to force merging on sync instead of 
+      creating dupes (LP: #535263)
+  * debian/patches/lp_report_to_ubuntu.patch
+    - File bugs against the package (LP: #551132)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 17 Mar 2010 13:20:24 -0400
+
+gwibber (2.29.92.1-0ubuntu1) lucid; urgency=low
+
+  * Upstream release 2.29.92.1
+    - fixes for friendfeed which require a remote key (LP: #520537)
+    - fixes for qaiku and friendfeed which both require an API key (LP: #538160)
+    - string change for the preferences menu (LP: #534952)
+  * debian/gwibber.install
+    - Don't install the launcher for gwibber-accounts (LP: #533076)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 12 Mar 2010 18:10:57 +0100
+
+gwibber (2.29.92-0ubuntu2) lucid; urgency=low
+
+  * debian/patches/lp_538083.patch
+    - when network exception is caught, CPU usage hits 100% (LP: #538083)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 12 Mar 2010 08:42:41 -0500
+
+gwibber (2.29.92-0ubuntu1) lucid; urgency=low
+
+  * new upstream release 2.29.92
+    - Raise errors for auth failures
+    - don't sync the gwibber_messages to ubuntuone (LP: #520687)
+    - use dbus names to check for existing service (LP: #534922)
+  * debian/gwibber.install
+    - Added files needs for raising error dialogs
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 11 Mar 2010 12:20:52 -0500
+
+gwibber (2.29.91-0ubuntu1) lucid; urgency=low
+
+  * new upstream release 2.29.91
+    - fixed a bug that prevented mentions/replies to get added to the 
+      messaging indicator
+    - added more debug level logging
+    - Fixed raising the client via dbus, missed a variable rename
+    - Added signatures to the URLShorten dbus methods, fixes (LP: #517723)
+    - URL shortening should be async (LP: #521974)
+    - don't fail if desktopcouch is slow to start
+    - Make "Name" more descriptive, it is displayed on UNE and in 
+      GNOME Shell (LP: #522180)
+    - Fixed calls to print_exc that failed
+    - Gwibber stops working after suspending (LP: #518550)
+    - Fixed notifications for mentions only (LP: #528270)
+    - Set the autostart gconf key if it wasn't set at all before
+    - Internationalization fixed from David Planella (LP: #520462)
+    - use human readable time string in save to tomboy (LP: #532730)
+    - imported translations from LP
+    - Moved the init_design_doc method call to MessageMonitor, this fixes a 
+      bug loading the design document before it is created
+    - fixed a problem with configuring accounts spawning two services
+    - check to see if gwibber-service is already running before starting
+  * debian/gwibber.desktop
+    - Make gwibber-service autostart with a delay of 60s if accounts are 
+      configured
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 19 Feb 2010 16:42:07 -0500
+
+gwibber (2.29.90.1-0ubuntu2) lucid; urgency=low
+
+  * No-change upload to get translations stripped and imported, now that the
+    package is in main.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 01 Mar 2010 09:39:09 +0100
+
+gwibber (2.29.90.1-0ubuntu1) lucid; urgency=low
+
+  * New upstream release 2.29.90.1
+    - Removed legacy home.mako templates, they aren't used anymore
+    - don't include the 32x32 icons in the dist, they aren't used
+  * debian/control, debian/gwibber.install, debian/gwibber-themes.install
+    - Split the extra themes out into a separate gwibber-themes package
+  * debian/control
+    - updated descriptions to reflect current gwibber features
+    - added Suggests for gwibber-themes
+    - make gwibber-themes replace gwibber << 2.29.90.1
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 18 Feb 2010 22:07:33 -0500
+
+gwibber (2.29.90-0ubuntu1) lucid; urgency=low
+
+  [ Ken VanDine ]
+  * New upstream release 2.29.90
+    - ported Qaiku, StatusNet and Digg to 2.29.x
+    - Added logging, now outputs logs in $HOME/.cache/gwibber/
+    - Added url shortening to the python API
+    - Updated docstrings for epydoc friendly API docs
+
+  [ Didier Roche ]
+  * debian/control:
+    - bump Standard-Version
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 17 Feb 2010 14:47:15 -0500
+
+gwibber (2.29.1-0ubuntu1) lucid; urgency=low
+
+  * new release 2.29.1 
+  * debian/patches/theme.patch
+    - Set default theme to "ubuntu"
+  * debian/copyright
+    - updated references for files removed or moved
+  * dropped debian/{dirs,docs}, not needed anymore
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 08 Feb 2010 14:19:52 -0500
+
+gwibber (2.29.1~bzr557-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - new messages theme for ubuntu
+    - updated jquery
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Sat, 06 Feb 2010 11:14:30 -0800
+
+gwibber (2.29.1~bzr550-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - handle failures better in account import
+    - force a refresh after migrating accounts from gconf
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 05 Feb 2010 16:03:32 -0800
+
+gwibber (2.29.1~bzr548-0ubuntu3) lucid; urgency=low
+
+  * debian/gwibber.install
+    - added upgrade.py 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 05 Feb 2010 15:38:11 -0800
+
+gwibber (2.29.1~bzr548-0ubuntu2) lucid; urgency=low
+
+  * new snapshot
+    - added missing upgrade.py (LP: #517646)
+    - Use Twitter's home timeline instead of the deprecated friends timeline
+    - Consolidate all of our databases and monitors into the Model class
+    - Applied Cimi's box-shadow improvement to the Gwilouche theme
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 05 Feb 2010 15:25:28 -0800
+
+gwibber (2.29.1~bzr543-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - Account creation/edit dialogs should have capitalized 
+      titles (LP: #504979)
+    - Create dialog don't use a verb in the button (LP: #316219)
+    - Save and create buttons should be in an hbuttonbar (LP: #517229)
+    - Facebook account creation dialog is displayed above Facebook 
+      authorization window (LP: #504966)
+    - Search entry should show clear icon if and only if the entry is not 
+      empty (LP: #505248)
+    - migrate old accounts out of gconf
+    - no private messages for Identi.ca (LP: #517211)
+    - Re-render the messages when the theme or font is changed (LP: #498454)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 05 Feb 2010 00:10:36 -0800
+
+gwibber (2.29.1~bzr533-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - re-enabled message themes
+    - Added send button and moved character counter to an overlay
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 04 Feb 2010 09:35:50 -0800
+
+gwibber (2.29.1~bzr529-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - Ported URLShorten and hooked it up in the UI
+  * debian/gwibber-service.install
+    - urlshorten moved under gwibber/microblog/
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 03 Feb 2010 11:51:33 -0800
+
+gwibber (2.29.1~bzr526-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - Fixed an import error in gwibber-accounts
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 03 Feb 2010 10:42:16 -0800
+
+gwibber (2.29.1~bzr525-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - fixed interface name for dbus service activation for the backend
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 03 Feb 2010 09:04:55 -0800
+
+gwibber (2.29.1~bzr523-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - really raise/focus the client when called via dbus
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 02 Feb 2010 17:51:52 -0800
+
+gwibber (2.29.1~bzr518-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - renames the dbus interface names to match the object path
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 02 Feb 2010 14:23:13 -0800
+
+gwibber (2.29.1~bzr516-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+  * don't crash if gtkspell can't work for specified locale (LP: #439146)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 01 Feb 2010 17:08:19 -0800
+
+gwibber (2.29.1~bzr515-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 01 Feb 2010 16:52:10 -0800
+
+gwibber (2.29.1~bzr514-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+  * debian/gwibber.install
+    - include gwibber.lib.gtk
+  * debian/gwibber-service.install
+    - include gwibber.lib
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 01 Feb 2010 16:34:35 -0800
+
+gwibber (2.29.1~bzr503-0ubuntu1) UNRLEASED; urgency=low
+
+  * new snapshot
+
+ -- Fabien Tassin <fta@ubuntu.com>  Sun, 31 Jan 2010 03:00:51 +0100
+
+gwibber (2.29.0~bzr496-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+    - fixes a problem starting the client when the service isn't running yet
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Sat, 30 Jan 2010 00:25:51 -0500
+
+gwibber (2.29.0~bzr494-0ubuntu1) lucid; urgency=low
+
+  * new snapshot from the overhaul branch
+  * split the daemon out into gwibber-service (LP: #421285)
+  * use desktopcouch for message storage, displays messages (LP: #501676)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 29 Jan 2010 23:50:27 -0500
+
+gwibber (2.0.0~bzr488-0ubuntu1) lucid; urgency=low
+
+  * new snapshot
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 01 Dec 2009 14:48:24 -0500
+
+gwibber (2.0.0~bzr486-0ubuntu2) karmic; urgency=low
+
+  * debian/control
+    - removed depends for python-gnome2-desktop and python-cairo
+    - added depends for python-wnck 
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 27 Nov 2009 01:49:48 -0500
+
+gwibber (2.0.0~bzr486-0ubuntu1) UNRELEASED; urgency=low
+
+  * Large font size, cannot be changed or overridden (LP: #460069)
+  * Gwibber doesn't honor refresh interval preference (LP: #487266)
+  * Added beginings of a public python API and simplified the submition 
+    of an operation over dbus
+  * debian/patches/01_lp455943.patch
+    - removed, merged upstream
+
+  [Mike Basinger]
+  * Added python-gtkspell as a dependency to fix spellchecking (LP: #451374)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 23 Nov 2009 17:10:45 -0500
+
+gwibber (2.0.0~bzr476-0ubuntu3) karmic; urgency=low
+
+  * backout previous fix for font offset, which only adjusted offset, rather than fixing
+    the bug "gwibber does not honour font settings from UI"
+
+ -- Alexander Sack <asac@ubuntu.com>  Sun, 25 Oct 2009 16:32:44 +0100
+
+gwibber (2.0.0~bzr476-0ubuntu2) karmic; urgency=low
+
+  * adjusted font size so it stays with system font size rather than having a
+    +2pt offset (LP: #460069)
+
+ -- Jordan Hall <jordan@hall05.co.uk>  Sun, 25 Oct 2009 00:07:39 +0100
+
+gwibber (2.0.0~bzr476-0ubuntu1) karmic; urgency=low
+
+  * new upstream snapshot - r476
+    - fixes multithreading issues in gwibber-daemon probably causing a lot of random issues
+    - reduce number of threads to minimum by running OperationManager and OperatinResultHandler
+      run in glib mainloop
+    - fix flickr time parsing issues that can trigger random sorting of messages in frontend
+    - fix digg time parsing issues that can trigger random sorting of messages in frontend
+    - quit gwibber daemon if you explicitly quit gwibber UI
+  * remove round borders from css to fix invisible avatars for some graphic drivers (LP: #455943)
+    - add debian/patches/01_lp455943.patch
+
+ -- Alexander Sack <asac@ubuntu.com>  Fri, 23 Oct 2009 10:48:06 +0200
+
+gwibber (2.0.0~bzr467-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot - r467
+    - set timeouts for connection and calls to facebook (LP: #422864)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Mon, 19 Oct 2009 10:48:40 -0400
+
+gwibber (2.0.0~bzr466-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot - r466
+    - Fixed theme handling when the theme configured doesn't
+      exist (LP: #447733) and (LP: #446661)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 09 Oct 2009 22:29:29 -0400
+
+gwibber (2.0.0~bzr465-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot - r465
+    - Fixes for dbus call blocking crashes (LP: #422726) (LP: #434833)
+    - dbus client and server now follow name changes (LP: #439325) (LP: #434592)
+    - Remember previous window size and position (LP: #422525)
+    - Remember previous account tree splitter position
+    - Remember previous input area size
+    - Do not change input area height when resizing main window (LP: #422532)
+    - Version themes to ensure only compatible themes are available
+    - fix dict handling for facebook replies (LP: #436690)
+    - facebook now uses pycurl instead of urllib2, fixes hangs (LP: #422864)
+  * debian/preinst:
+    - Moved from debian/postinst and added version compare
+  * debian/control:
+    - depend on python-pycurl, urllib2 was causing terrible problems
+      with facebook (LP: #422864)
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Sun, 04 Oct 2009 20:40:40 -0400
+
+gwibber (2.0.0~bzr449-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot - r449 
+    - Fixed notifications (LP: #421021)
+    - Fixed time displayed in the messaging menu
+    - Merged fix from James Ogley for retweets (LP: #423026)
+    - Moved the indicator launcher to /usr/share (LP: #434097)
+  * debian/postinst:
+    - remove the old indicator from /etc and remove the directory
+      if it is empty
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 24 Sep 2009 01:31:03 -0400
+
+gwibber (2.0.0~bzr436-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot - r436 (LP: #428109)
+    - Fixed failure to refresh on start
+    - Fixed default configuration not being applied (LP: #418058)
+    - Fixed url shortening when resulting urls are more than 20 chars
+    - Updated the indicator to use v2 of the libindicate API (LP: #428109)
+    - Made the client launchable via dbus activation as well, enabling
+      the daemon to launch it when clicked in the messaging menu
+    - Bug fixes in the indicator (LP: #428112)
+    - Raise the client window when select in the indicator (LP: #398713)
+    - Add messaging menu launcher for gwibber (LP: #428110)
+    - Fixed starting/stopping of the throbber while the daemon is performing 
+      operations (LP: #421655)
+    - Show menu icons when it makes sense
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Fri, 18 Sep 2009 16:28:03 -0400
+
+gwibber (2.0.0~bzr396-0ubuntu1) karmic; urgency=low
+
+  * New upstream snapshot
+    - Improved first run experience
+    - Split backend and frontend into separate services
+    - Added launcher used in the messaging indicator
+  * debian/control:
+    * Bump minimum python version to >=2.6
+    * Added Suggests for python-desktopcouch-records
+    * Added Vcs-Browser
+
+  [ Alexander Sack ]
+  * fix LP: #389497 - "Do not depend on libwebkit directly"; dropping libwebkit
+    dependency and replacing transitional python-webkitgtk with python-webkit
+    in debian/control
+  * break long Depends: in multiple lines in debian/control
+  * fix LP: #366546 - "Gwibber missing dependency on python-glade2"; adjust Depends
+    in debian/control accordingly
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 25 Aug 2009 23:00:17 -0400
+
+gwibber (1.2.0~bzr346-0ubuntu1) karmic; urgency=low
+
+  * snapshot 1.2.0~bzr346 fixes: LP: #304033
+
+  [ Fabien Tassin ]
+  * New upstream snapshot
+  * Add python-mako to Depends
+
+ -- Alexander Sack <asac@ubuntu.com>  Fri, 03 Jul 2009 20:32:57 +0200
+
+gwibber (0.9.2~bzr263-0ubuntu3) karmic; urgency=low
+
+  * Bah! libwebkit version is hard-coded in debian/control. Fix it for -2.
+
+ -- Steve Kowalik <stevenk@ubuntu.com>  Sun, 14 Jun 2009 00:03:44 +1000
+
+gwibber (0.9.2~bzr263-0ubuntu2) karmic; urgency=low
+
+  * No-change rebuild for libwebkit-1.0-1 -> libwebkit-1.0-2 transition.
+
+ -- Steve Kowalik <stevenk@ubuntu.com>  Fri, 12 Jun 2009 10:14:00 +1000
+
+gwibber (0.9.2~bzr263-0ubuntu1) karmic; urgency=low
+
+  [ Fabien Tassin ]
+  * New upstream snapshot
+  * Add python-xdg to Depends
+
+  [ Alexander Sack ]
+  * Fix typo s/DATA__BASE_DIRS/DATA_BASE_DIRS/ causing startup issues
+  
+  [ David Futcher ]
+  * debian/control: Improve long description
+  * Install gwibber manpage (LP: #364813)
+    - debian/copyright: Update to include manpage license terms
+    - debian/gwibber.manpages: Add manpage
+
+ -- David Futcher <bobbo@ubuntu.com>  Tue, 28 Apr 2009 16:59:01 +0100
+
+gwibber (0.8-0ubuntu3) jaunty; urgency=low
+
+  * Initial release: 0.8 (as of lp:gwibber/1.0 #239)
+  * Packaging by Jorge O. Castro <jorge@ubuntu.com> and
+    Fabien Tassin <fta@ubuntu.com>
+
+ -- Fabien Tassin <fta@ubuntu.com>  Fri, 20 Feb 2009 14:45:57 +0100
+

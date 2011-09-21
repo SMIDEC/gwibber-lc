@@ -1,0 +1,30 @@
+gwibber.desktop.in
+gwibber-accounts.desktop.in
+gwibber-preferences.desktop.in
+gwibber/accounts.py
+gwibber/actions.py
+gwibber/client.py
+gwibber/gwui.py
+gwibber/lib/gtk/widgets.py
+gwibber/lib/gtk/buzz.py
+gwibber/lib/gtk/facebook.py
+gwibber/microblog/util/exceptions.py
+gwibber/lib/gtk/twitter.py
+gwibber/preferences.py
+gwibber/util.py
+[type: gettext/glade] ui/gwibber-about-dialog.ui
+[type: gettext/glade] ui/gwibber-accounts-buzz.ui
+[type: gettext/glade] ui/gwibber-accounts-dialog.ui
+[type: gettext/glade] ui/gwibber-accounts-digg.ui
+[type: gettext/glade] ui/gwibber-accounts-facebook.ui
+[type: gettext/glade] ui/gwibber-accounts-flickr.ui
+[type: gettext/glade] ui/gwibber-accounts-friendfeed.ui
+[type: gettext/glade] ui/gwibber-accounts-identica.ui
+[type: gettext/glade] ui/gwibber-accounts-pingfm.ui
+[type: gettext/glade] ui/gwibber-accounts-statusnet.ui
+[type: gettext/glade] ui/gwibber-accounts-twitter.ui
+[type: gettext/glade] ui/gwibber-accounts-qaiku.ui
+[type: gettext/glade] ui/gwibber-preferences-dialog.ui
+ui/templates/base.mako
+ui/templates/targetbar.mako
+bin/gwibber-poster

@@ -1,0 +1,16 @@
+diff -ruN b//gwibber/microblog/util/const.py a//gwibber/microblog/util/const.py
+--- b//gwibber/microblog/util/const.py	2010-09-13 23:45:48.000000000 +0500
++++ a//gwibber/microblog/util/const.py	2010-09-18 11:19:12.664718583 +0500
+@@ -66,9 +66,9 @@
+ VERSION_NUMBER = "2.32.0"
+ GCONF_CLIENT_DIR = "/apps/gwibber/client/"
+ 
+-BUG_URL = "https://bugs.launchpad.net/gwibber/+filebug"
+-QUESTIONS_URL = "https://answers.launchpad.net/gwibber"
+-TRANSLATE_URL = "https://translations.launchpad.net/gwibber"
++BUG_URL = "https://bugs.launchpad.net/ubuntu/+source/gwibber/+filebug"
++QUESTIONS_URL = "https://answers.launchpad.net/ubuntu/maverick/+source/gwibber/+gethelp"
++TRANSLATE_URL = "https://translations.launchpad.net/ubuntu/maverick/+source/gwibber/"
+ 
+ # Setup some Network Manager stuff to query for online state
+ NM_DBUS_SERVICE = "org.freedesktop.NetworkManager"

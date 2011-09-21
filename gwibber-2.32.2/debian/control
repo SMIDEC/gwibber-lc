@@ -1,0 +1,70 @@
+Source: gwibber
+Section: misc
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Build-Depends: cdbs (>=0.4.49), debhelper (>= 6), python-all, python-central (>=0.5.6), python-distutils-extra
+Standards-Version: 3.9.1
+XS-Python-Version: >=2.6
+Homepage: https://launchpad.net/gwibber
+Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/gwibber/ubuntu
+
+Package: gwibber
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: python-dbus,
+	python-gtk2,
+	python-gconf,
+	python-egenix-mxdatetime,
+	python-simplejson,
+	python-webkit,
+	librsvg2-2,
+	librsvg2-common,
+	python-imaging,
+	python-xdg,
+	python-mako,
+	python-gtkspell,
+	python-wnck,
+	python-oauth,
+        gwibber-service (= ${binary:Version}),
+	${python:Depends}, ${misc:Depends}
+Suggests: gwibber-themes
+Description: Open source social networking client for GNOME
+ Gwibber is a social networking client for GNOME. It supports Facebook, 
+ Twitter, Identi.ca, StatusNet, FriendFeed, Qaiku, Flickr, and Digg.
+ .
+ This package includes the Gwibber desktop client
+
+Package: gwibber-service
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: python-dbus,
+	python-notify,
+	python-egenix-mxdatetime,
+	python-simplejson,
+	python-xdg,
+	python-pycurl,
+        python-gnomekeyring,
+	python-oauth,
+	python-imaging,
+	${python:Depends}, ${misc:Depends}
+Conflicts: gwibber (<< 2.29.1~bzr506-0ubuntu1)
+Recommends: python-desktopcouch-records,
+            python-libproxy (>= 0.3.1),
+            python-indicate (>= 0.3.0)
+Description: Open source social networking client for GNOME
+ Gwibber is a social networking client for GNOME. It supports Facebook, 
+ Twitter, Identi.ca, StatusNet, FriendFeed, Qaiku, Flickr, and Digg.
+ .
+ This package includes the Gwibber desktop service
+
+Package: gwibber-themes
+Architecture: all
+Depends: gwibber,
+	python-mako,
+	${python:Depends}, ${misc:Depends}
+Replaces: gwibber (<< 2.29.90.1)
+Description: Open source social networking client for GNOME
+ Gwibber is a social networking client for GNOME. It supports Facebook, 
+ Twitter, Identi.ca, StatusNet, FriendFeed, Qaiku, Flickr, and Digg.
+ .
+ This package includes message themes for use in Gwibber

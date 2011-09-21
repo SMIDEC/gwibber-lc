@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+case $1 in
+    install|upgrade)
+        if dpkg --compare-versions "$2" lt-nl "2.0.0~bzr436-0ubuntu1"; then
+            rm /etc/indicators/messages/applications/gwibber.indicator || true
+            rmdir --ignore-fail-on-non-empty /etc/indicators/messages/applications/ || true
+        fi
+        ;;
+esac
+
+#DEBHELPER#

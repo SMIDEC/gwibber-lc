@@ -1,0 +1,12 @@
+=== modified file 'gwibber/preferences.py'
+--- gwibber/preferences.py	2010-07-26 20:44:13 +0000
++++ gwibber/preferences.py	2010-07-28 15:49:29 +0000
+@@ -76,6 +76,7 @@
+     for key in ["theme", "urlshorter", "retweet_style"]:
+       self.settings.bind(getattr(self, key + "_selector"), key)
+ 
++    self.ui.get_object("tray_icon_frame").destroy()
+     dialog.show_all()
+ 
+   def populate_settings_widgets(self):
+
